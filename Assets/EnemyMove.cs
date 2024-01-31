@@ -37,6 +37,7 @@ public class EnemyMove : MonoBehaviour
         else
         {
             Patrol();
+            
         }
 
     }
@@ -63,6 +64,7 @@ public class EnemyMove : MonoBehaviour
 
     void Patrol()
     {
+        transform.LookAt(patrolPoints[currentPatrolIndex].position);
         // Bevæg AI mod det aktuelle patruljepunkt
         transform.position = Vector3.MoveTowards(transform.position, patrolPoints[currentPatrolIndex].position, moveSpeed * Time.deltaTime);
 
