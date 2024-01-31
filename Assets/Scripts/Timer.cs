@@ -1,37 +1,52 @@
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using TMPro;
 using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    
-    public float timerDuration = 10f; // tid i sek
-    private float timer;
 
-    void Start()
+    public float countdownTime = 120f; // Angiv den Ã¸nskede tid i sekunder
+    private float currentTime;
+    private bool timerIsRunning = true;
+    public TextMeshProUGUI timerText;
+
+    private void Start()
     {
-        timer = timerDuration;
+        currentTime = countdownTime;
     }
 
-    void Update()
+    private void Update()
     {
-        // Opdater timeren nedtælling
-        timer -= Time.deltaTime;
-
-        // Tjek om tiden er udløbet
-        if (timer <= 0f)
+        if (timerIsRunning)
         {
-            // Udfør handlingen
-            HandleTimerComplete();
-
-            // Nulstil timeren til den oprindelige varighed for gentagne brug
-            timer = timerDuration;
+            UpdateTimer();
         }
     }
 
-    void HandleTimerComplete()
+    void UpdateTimer()
     {
-        // Udfør  handling her
-        Debug.Log("Timeren er udløbet! Udfør handlingen her.");
+        currentTime -= Time.deltaTime;
+
+        // Opdater UI-tekst for at vise tiden i minutter og sekunder
+        int minutes = Mathf.FloorToInt(currentTime / 60f);
+        int seconds = Mathf.FloorToInt(currentTime % 60f);
+        timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+
+        if (currentTime <= 0f)
+        {
+            currentTime = 0f;
+            timerIsRunning = false;
+            HandleTimerEnd(); // Kald din funktion for handling af tidsslutningen her
+        }
+    }
+
+    void HandleTimerEnd()
+    {
+        // UdfÃ¸r handlingen, f.eks. Ã¦ndr spiltilstand, vis en besked, osv.
+        Debug.Log("Tiden er udlÃ¸bet! UdfÃ¸rer handlingen nu.");
+        currentTime = countdownTime;
     }
 }
