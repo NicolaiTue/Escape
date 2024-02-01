@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI ;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -10,6 +11,11 @@ public class FPSController : MonoBehaviour
     public float runSpeed = 12f;
     public float jumpPower = 7f;
     public float gravity = 10f;
+
+    Rigidbody rb;
+    public float HP = 100f;
+    private float currentHP;
+    private Slider HPbar;
 
 
     public float lookSpeed = 2f;
@@ -28,6 +34,12 @@ public class FPSController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        currentHP = HP;
+        HPbar = GameObject.FindGameObjectWithTag("HPBar").GetComponent<Slider>();
+        HPbar.maxValue = HP;
+        HPbar.value = currentHP;
+        rb = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -75,5 +87,22 @@ public class FPSController : MonoBehaviour
         }
 
         #endregion
+    }
+    public void TakeDamage(float damageAmount)
+    {
+        currentHP -= damageAmount;
+        HPbar.value = currentHP;
+        if (currentHP <= 0)
+        {
+            Die();
+        }
+    }
+    
+    void Die()
+    {
+        SpawnManager.Instance.RespawnPlayer(transform);
+        currentHP = HP;
+        HPbar.value += currentHP;
+        Debug.Log("PlayerDied");
     }
 }
