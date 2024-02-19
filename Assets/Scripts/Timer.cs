@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Timer : MonoBehaviour
@@ -47,6 +48,7 @@ public class Timer : MonoBehaviour
     {
         // Udfør handlingen, f.eks. ændr spiltilstand, vis en besked, osv.
         Debug.Log("Tiden er udløbet! Udfører handlingen nu.");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         currentTime = countdownTime;
     }
 }
