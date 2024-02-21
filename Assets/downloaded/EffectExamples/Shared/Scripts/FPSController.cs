@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI ;
+
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -14,8 +16,8 @@ public class FPSController : MonoBehaviour
 
     Rigidbody rb;
     public float HP = 100f;
-    private float currentHP;
-    private Slider HPbar;
+    public float currentHP;
+    [SerializeField] private Slider HPbar;
 
 
     public float lookSpeed = 2f;
@@ -36,7 +38,7 @@ public class FPSController : MonoBehaviour
         Cursor.visible = false;
 
         currentHP = HP;
-        HPbar = GameObject.FindGameObjectWithTag("HPBar").GetComponent<Slider>();
+        //HPbar = GameObject.FindGameObjectWithTag("HPBar").GetComponent<Slider>();
         HPbar.maxValue = HP;
         HPbar.value = currentHP;
         rb = GetComponent<Rigidbody>();
@@ -100,7 +102,7 @@ public class FPSController : MonoBehaviour
     
     void Die()
     {
-        SpawnManager.Instance.RespawnPlayer(transform);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         currentHP = HP;
         HPbar.value += currentHP;
         Debug.Log("PlayerDied");
