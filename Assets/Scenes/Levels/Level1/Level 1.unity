@@ -21368,7 +21368,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -29693,9 +29693,10 @@ GameObject:
   - component: {fileID: 594879073}
   - component: {fileID: 594879075}
   - component: {fileID: 594879074}
+  - component: {fileID: 594879076}
   m_Layer: 0
   m_Name: WallFlamesEmitter
-  m_TagString: Untagged
+  m_TagString: fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34299,6 +34300,27 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!65 &594879076
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594879072}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 0.8}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &597107836
 GameObject:
   m_ObjectHideFlags: 0
@@ -52779,8 +52801,8 @@ Transform:
   m_GameObject: {fileID: 1244883770}
   serializedVersion: 2
   m_LocalRotation: {x: 0.123733155, y: -0, z: -0, w: 0.99231553}
-  m_LocalPosition: {x: 0.1800003, y: 8.7, z: -5.74}
-  m_LocalScale: {x: 10, y: 3, z: 0.4}
+  m_LocalPosition: {x: 0.1800003, y: 8.9095, z: -5.6869}
+  m_LocalScale: {x: 10, y: 3.4322999, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1394877441}
