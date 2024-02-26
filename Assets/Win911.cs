@@ -10,8 +10,9 @@ public class Win911 : MonoBehaviour
     {
         if (col.tag == "Win911")
         {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
-           
         }
     }
     
