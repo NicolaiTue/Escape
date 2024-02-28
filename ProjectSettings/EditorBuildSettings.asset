@@ -20,4 +20,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Levels/Level1/Win_911.unity
     guid: d24d44167b84d47ff9436acec712a7c7
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level2/1Pre level.unity
+    guid: f18a7b589d5bc364cb12cbd2882713d7
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level2/Erik.unity
+    guid: 9a43f3c7d9fd1e74b89bfe0a8e9f873a
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level2/4Winner.unity
+    guid: fef40c59f95b8914880a2a7eb838f42b
   m_configObjects: {}
