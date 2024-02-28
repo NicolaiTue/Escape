@@ -8,7 +8,7 @@ public class prebutton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.LoadScene("2Level 2");
+        SceneManager.LoadScene("Erik");
     }
 
     // Update is called once per frame
